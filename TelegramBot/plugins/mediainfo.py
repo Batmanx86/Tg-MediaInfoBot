@@ -1,6 +1,6 @@
 from TelegramBot.helpers.supported_url_regex import SUPPORTED_URL_REGEX
 from TelegramBot.helpers.gdrivehelper import GoogleDriveHelper
-from TelegramBot.helpers.pasting_services import katbin_paste
+from TelegramBot.helpers.pasting_services import telegraph_paste
 from TelegramBot.helpers.functions import *
 from TelegramBot.config import prefixes
 
@@ -64,9 +64,9 @@ async def gdrive_mediainfo(_, message, url):
 
         with open(f"{file_id}.txt", "r+") as file:
             content = file.read()
-        output = await katbin_paste(content)
+        output = await telegraph_paste(content)
 
-        await reply_msg.edit(f"**File Name :** `{filename}`\n\n**Mediainfo :** {output}", disable_web_page_preview=True)
+        await reply_msg.edit(f"**File Name :** `{filename}`\n\n**Mediainfo :** {output}", disable_web_page_preview=False)
         os.remove(f"{file_id}.txt")
         os.remove(file_id)
 
@@ -116,10 +116,10 @@ async def ddl_mediainfo(_, message, url):
 
         with open(f"{filename}.txt", "r+") as file:
             content = file.read()
-        output = await katbin_paste(content)
+        output = await telegraph_paste(content)
 
         await reply_msg.edit(f"**File Name :** `{unquote(filename)}`\n\n**Mediainfo :** {output}",
-                             disable_web_page_preview=True)
+                             disable_web_page_preview=False)
         os.remove(f"{filename}.txt")
         os.remove(filename)
 
@@ -196,9 +196,9 @@ async def telegram_mediainfo(client, message):
         with open(f"{filename}.txt", "r+") as file:
             content = file.read()
 
-        output = await katbin_paste(content)
+        output = await telegraph_paste(content)
 
-        await reply_msg.edit(f"**File Name :** `{filename}`\n\n**Mediainfo :** {output}", disable_web_page_preview=True)
+        await reply_msg.edit(f"**File Name :** `{filename}`\n\n**Mediainfo :** {output}", disable_web_page_preview=False)
         os.remove(f'{filename}.txt')
         os.remove(filename)
 
