@@ -26,7 +26,7 @@ async def katbin_paste(text: str) -> str:
         return "something went wrong while pasting text in katb.in."
 
 
-async def telegraph_paste(content: str, title="TelegramBot") -> str:
+async def telegraph_paste(content: str, title="MediaInfo") -> str:
     """
 	paste the text in telegra.ph (graph.org) website.
 	"""
